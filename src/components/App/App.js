@@ -1,11 +1,17 @@
 import React, { Component } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { connect } from "react-redux";
 
 import HomeScreen from "../../modules/HomeScreen/HomeScreen";
 import ScheduleActivityModal from "../../modules/ScheduleActivityModal/ScheduleActivityModal";
 import TrackActivityModal from "../../modules/TrackActivityModal/TrackActivityModal";
+import { fetchActivities } from "../../actions/activitiesActions";
 
 class App extends Component {
+  componentDidMount() {
+    this.props.fetchActivities();
+  }
+
   render() {
     return (
       <BrowserRouter>
@@ -19,4 +25,13 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchActivities: () => dispatch(fetchActivities())
+  };
+};
+
+export default connect(
+  undefined,
+  mapDispatchToProps
+)(App);
