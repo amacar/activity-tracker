@@ -11,6 +11,7 @@ import surfingIcon from "../../../assets/icn_surfing.svg";
 import hikingIcon from "../../../assets/icn_hiking.svg";
 import weightsIcon from "../../../assets/icn_weights.svg";
 import spinningIcon from "../../../assets/icn_spin.svg";
+import ActivityCard from "./ActivityCard";
 
 const { trackActivity, surfing, surfingSub, hiking, hikingSub, weights, weightsSub, spinning, spinningSub } = Home;
 
@@ -40,9 +41,7 @@ const TrackActivity = () => {
       <div className="TrackActivity-carousel">
         <Slider {...settings}>
           {getActivities().map(activity => (
-            <div>
-              <img src={activity.src} alt="" />
-            </div>
+            <ActivityCard activity={activity} />
           ))}
         </Slider>
       </div>
