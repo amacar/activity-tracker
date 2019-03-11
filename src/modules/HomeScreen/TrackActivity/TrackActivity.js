@@ -40,8 +40,8 @@ const TrackActivity = () => {
       <span className="TrackActivity-header">{trackActivity}</span>
       <div className="TrackActivity-carousel">
         <Slider {...settings}>
-          {getActivities().map(activity => (
-            <ActivityCard activity={activity} />
+          {getActivities().map((activity, i) => (
+            <ActivityCard key={i} activity={activity} />
           ))}
         </Slider>
       </div>
