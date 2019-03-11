@@ -6,19 +6,17 @@ import ScheduledActivities from "./ScheduledActivities/ScheduledActivities";
 import TrackedActivities from "./TrackedActivities/TrackedActivities";
 import "./HomeScreen.css";
 
-class HomeScreen extends Component {
-  render() {
-    return (
-      <Fragment>
-        <Header />
-        <div className="Home-content">
-          <TrackActivity />
-          <ScheduledActivities />
-          <TrackedActivities />
-        </div>
-      </Fragment>
-    );
-  }
-}
+const HomeScreen = () => {
+  return (
+    <Fragment>
+      <Header />
+      <div className="Home-content">
+        <TrackActivity />
+        <ScheduledActivities />
+        <TrackedActivities />
+      </div>
+    </Fragment>
+  );
+};
 
 export default HomeScreen;

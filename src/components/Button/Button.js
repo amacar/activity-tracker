@@ -2,8 +2,7 @@ import React from "react";
 
 import "./Button.css";
 
-const Button = props => {
-  const { icon, text, onClick } = props;
+const Button = ({ icon, text, onClick }) => {
   return (
     <div className="Button center" onClick={onClick}>
       {icon && <img className="Button-icon" src={icon} alt="" />}
