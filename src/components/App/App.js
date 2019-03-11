@@ -25,10 +25,8 @@ class App extends Component {
   }
 }
 
-const mapDispatchToProps = dispatch => {
-  return {
-    fetchActivities: () => dispatch(fetchActivities())
-  };
+const mapDispatchToProps = {
+  fetchActivities
 };
 
 export default connect(
