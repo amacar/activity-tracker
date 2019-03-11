@@ -58,7 +58,8 @@
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js",
-    "format": "prettier-eslint \"src/**/*.js\" --write"
+    "format": "prettier-eslint \"src/**/*.js\" --write",
+    "mock-backend": "json-server --watch config/db.json --port 3001"
   },
   "eslintConfig": {
     "extends": "react-app"
