@@ -1,0 +1,11 @@
+.TrackedActivities {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+}
+
+.TrackedActivities-header {
+  padding: 20px 0px 20px 20px;
+  font-weight: bold;
+  line-height: 35px;
+}

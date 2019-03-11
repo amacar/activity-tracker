@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 
-class HomeScreen extends Component {
+class ScheduleActivityModal extends Component {
   render() {
     return <div>ScheduleActivity</div>;
   }
 }
 
-export default HomeScreen;
+export default ScheduleActivityModal;

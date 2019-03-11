@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 import HomeScreen from "../../modules/HomeScreen/HomeScreen";
-import ScheduleActivity from "../../modules/ScheduleActivity/ScheduleActivity";
-import TrackActivity from "../../modules/TrackActivity/TrackActivity";
+import ScheduleActivityModal from "../../modules/ScheduleActivityModal/ScheduleActivityModal";
+import TrackActivityModal from "../../modules/TrackActivityModal/TrackActivityModal";
 
 class App extends Component {
   render() {
@@ -11,8 +11,8 @@ class App extends Component {
       <BrowserRouter>
         <Switch>
           <Route exact path="/" component={HomeScreen} />
-          <Route path="/schedule-activity" component={ScheduleActivity} />
-          <Route path="/track-activity" component={TrackActivity} />
+          <Route path="/schedule-activity" component={ScheduleActivityModal} />
+          <Route path="/track-activity" component={TrackActivityModal} />
         </Switch>
       </BrowserRouter>
     );

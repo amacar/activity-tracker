@@ -1,0 +1,7 @@
+.Home-header {
+  padding: 25px 0px;
+  background-color: white;
+  box-shadow: 0px 0px 10px rgba(27, 28, 32, 0.1);
+  width: 100%;
+  position: fixed;
+}
