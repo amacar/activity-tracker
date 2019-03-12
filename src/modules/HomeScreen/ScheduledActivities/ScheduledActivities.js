@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 
 import "./ScheduledActivities.css";
 import Button from "../../../components/Button/Button";
@@ -9,12 +10,16 @@ import { Home } from "../../../strings/en.js";
 
 const { scheduledActivities, scheduleActivity, noScheduledActivities } = Home;
 
-const ScheduledActivities = ({ scheduled, isFetching }) => {
+const ScheduledActivities = ({ scheduled, isFetching, history }) => {
+  const redirectToScheduleActivity = () => {
+    history.push("/schedule-activity");
+  };
+
   return (
     <div className="ScheduledActivities">
       <span className="ScheduledActivities-header">{scheduledActivities}</span>
       <Activities noActivitiesText={noScheduledActivities} activities={scheduled} isFetching={isFetching} />
-      <Button text={scheduleActivity} icon={iconPlus} />
+      <Button text={scheduleActivity} icon={iconPlus} onClick={redirectToScheduleActivity} />
     </div>
   );
 };
@@ -30,4 +35,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(ScheduledActivities);
+export default withRouter(connect(mapStateToProps)(ScheduledActivities));
