@@ -11,7 +11,8 @@ axios.defaults.baseURL = process.env.REACT_APP_API_URL;
 
 const initialState = {
   activitiesStore: {
-    activities: [],
+    scheduled: [],
+    tracked: [],
     isFetching: false
   }
 };

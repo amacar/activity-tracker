@@ -1,3 +1,5 @@
+import moment from "moment";
+
 import ActivitiesApi from "../api/ActivitiesApi";
 
 export const FETCH_ACTIVITIES = "FETCH_ACTIVITIES";
@@ -7,17 +9,29 @@ const fetchActivitiesAction = () => ({
   type: FETCH_ACTIVITIES
 });
 
-export const activitiesFetched = activities => ({
+export const activitiesFetched = (scheduled, tracked) => ({
   type: ACTIVITIES_FETCHED,
-  activities
+  scheduled,
+  tracked
 });
 
 export const fetchActivities = () => async dispatch => {
   dispatch(fetchActivitiesAction());
 
   try {
+    // fetch activities and move them to scheduled or tracked array
+    // this would normally be done on backend but we are using dummy backend
     const activities = await ActivitiesApi.fetchActivities();
-    dispatch(activitiesFetched(activities));
+    const scheduled = [];
+    const tracked = [];
+    activities.forEach(activity => {
+      if (moment(activity.start).isBefore(Date.now())) {
+        tracked.push(activity);
+      } else {
+        scheduled.push(activity);
+      }
+    });
+    dispatch(activitiesFetched(scheduled, tracked));
   } catch (err) {
     console.log(err);
     dispatch(activitiesFetched());

@@ -11,7 +11,8 @@ export const activitiesReducer = (state = {}, action) => {
       return {
         ...state,
         isFetching: false,
-        activities: action.activities
+        scheduled: action.scheduled,
+        tracked: action.tracked
       };
     default:
       return state;

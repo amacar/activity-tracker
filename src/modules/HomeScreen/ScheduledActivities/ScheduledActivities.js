@@ -1,4 +1,5 @@
 import React from "react";
+import { connect } from "react-redux";
 
 import "./ScheduledActivities.css";
 import Button from "../../../components/Button/Button";
@@ -8,14 +9,25 @@ import { Home } from "../../../strings/en.js";
 
 const { scheduledActivities, scheduleActivity, noScheduledActivities } = Home;
 
-const ScheduledActivities = () => {
+const ScheduledActivities = ({ scheduled, isFetching }) => {
   return (
     <div className="ScheduledActivities">
       <span className="ScheduledActivities-header">{scheduledActivities}</span>
-      <Activities noActivitiesText={noScheduledActivities} />
+      <Activities noActivitiesText={noScheduledActivities} activities={scheduled} isFetching={isFetching} />
       <Button text={scheduleActivity} icon={iconPlus} />
     </div>
   );
 };
 
-export default ScheduledActivities;
+const mapStateToProps = state => {
+  const {
+    activitiesStore: { scheduled, isFetching }
+  } = state;
+
+  return {
+    scheduled,
+    isFetching
+  };
+};
+
+export default connect(mapStateToProps)(ScheduledActivities);
