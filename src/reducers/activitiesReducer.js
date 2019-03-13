@@ -1,4 +1,7 @@
-import { FETCH_ACTIVITIES, ACTIVITIES_FETCHED } from "../actions/activitiesActions";
+import {
+  FETCH_ACTIVITIES,
+  ACTIVITIES_FETCHED
+} from "../actions/activitiesActions";
 
 export const activitiesReducer = (state = {}, action) => {
   switch (action.type) {

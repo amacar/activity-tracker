@@ -11,7 +11,11 @@ const TrackedActivities = ({ tracked, isFetching }) => {
   return (
     <div className="TrackedActivities">
       <span className="TrackedActivities-header">{trackedActivities}</span>
-      <Activities noActivitiesText={noTrackedActivities} activities={tracked} isFetching={isFetching} />
+      <Activities
+        noActivitiesText={noTrackedActivities}
+        activities={tracked}
+        isFetching={isFetching}
+      />
     </div>
   );
 };

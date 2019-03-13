@@ -18,8 +18,16 @@ const ScheduledActivities = ({ scheduled, isFetching, history }) => {
   return (
     <div className="ScheduledActivities">
       <span className="ScheduledActivities-header">{scheduledActivities}</span>
-      <Activities noActivitiesText={noScheduledActivities} activities={scheduled} isFetching={isFetching} />
-      <Button text={scheduleActivity} icon={iconPlus} onClick={redirectToScheduleActivity} />
+      <Activities
+        noActivitiesText={noScheduledActivities}
+        activities={scheduled}
+        isFetching={isFetching}
+      />
+      <Button
+        text={scheduleActivity}
+        icon={iconPlus}
+        onClick={redirectToScheduleActivity}
+      />
     </div>
   );
 };

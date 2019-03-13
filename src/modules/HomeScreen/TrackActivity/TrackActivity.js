@@ -8,6 +8,17 @@ import ActivityCard from "./ActivityCard";
 
 const { trackActivity } = Home;
 
+const getActivities = () =>
+  Object.entries(Activities).map(([key, activity]) => {
+    return {
+      key,
+      src: activity.img,
+      icon: activity.icon,
+      text: activity.text,
+      subtext: activity.subtext
+    };
+  });
+
 const TrackActivity = () => {
   const settings = {
     infinite: false,
@@ -18,17 +29,6 @@ const TrackActivity = () => {
     arrows: false,
     swipeToSlide: true
   };
-
-  const getActivities = () =>
-    Object.entries(Activities).map(([key, activity]) => {
-      return {
-        key,
-        src: activity.img,
-        icon: activity.icon,
-        text: activity.text,
-        subtext: activity.subtext
-      };
-    });
 
   return (
     <div className="TrackActivity">

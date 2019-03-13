@@ -33,7 +33,11 @@ const ActivitiesRow = ({ group: { month, day, dayWord, activities } }) => {
       <div className="ActivitiesRow-slider">
         <Slider {...settings}>
           {activities.map((activity, i) => (
-            <ActivityItem key={i} icon={Activities[activity.type] && Activities[activity.type].icon} text={moment(activity.start).format("h:mm A")} />
+            <ActivityItem
+              key={i}
+              icon={Activities[activity.type] && Activities[activity.type].icon}
+              text={moment(activity.start).format("h:mm A")}
+            />
           ))}
         </Slider>
       </div>
