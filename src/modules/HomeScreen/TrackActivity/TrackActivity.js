@@ -15,7 +15,8 @@ const TrackActivity = () => {
     slidesToShow: 2,
     slidesToScroll: 1,
     variableWidth: true,
-    arrows: false
+    arrows: false,
+    swipeToSlide: true
   };
 
   const getActivities = () =>

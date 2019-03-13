@@ -1,0 +1,27 @@
+.ActivitiesRow {
+  margin-bottom: 20px;
+  margin-left: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.ActivitiesRow-month {
+  color: #6e8ca0;
+  font-family: "rift-soft", sans-serif;
+  font-size: 14px;
+  letter-spacing: 2px;
+}
+
+.ActivitiesRow-day {
+  color: #1b1c20;
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 18px;
+}
+
+.ActivitiesRow-slider {
+  color: #8d8c8c;
+  font-size: 12px;
+  margin-top: 12px;
+  margin-left: -5px;
+}
