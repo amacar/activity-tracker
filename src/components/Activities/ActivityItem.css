@@ -23,3 +23,13 @@
   width: 35px;
   height: 35px;
 }
+
+.ActivityItem-icon-blank {
+  background-color: #f0f3f4;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border-style: dashed;
+  border-color: #c8d1d3;
+  border-width: 1px;
+}

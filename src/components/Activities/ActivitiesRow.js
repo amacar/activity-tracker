@@ -15,8 +15,14 @@ const ActivitiesRow = ({ group: { month, day, dayWord, activities } }) => {
     variableWidth: true,
     arrows: false,
     dots: false,
-    swipeToSlide: true
+    swipeToSlide: true,
+    swipe: activities.length > 4
   };
+
+  // add empty placeholders if needed
+  while (activities.length < 5) {
+    activities.push({});
+  }
 
   return (
     <div className="ActivitiesRow">
@@ -26,8 +32,8 @@ const ActivitiesRow = ({ group: { month, day, dayWord, activities } }) => {
       <span className="ActivitiesRow-day">{dayWord}</span>
       <div className="ActivitiesRow-slider">
         <Slider {...settings}>
-          {activities.map(activity => (
-            <ActivityItem key={activity.id} icon={Activities[activity.type].icon} text={moment(activity.start).format("h:mm A")} />
+          {activities.map((activity, i) => (
+            <ActivityItem key={i} icon={Activities[activity.type] && Activities[activity.type].icon} text={moment(activity.start).format("h:mm A")} />
           ))}
         </Slider>
       </div>
