@@ -37,6 +37,7 @@ const ActivitiesRow = ({ group: { month, day, dayWord, activities } }) => {
               key={i}
               icon={Activities[activity.type] && Activities[activity.type].icon}
               text={moment(activity.start).format("h:mm A")}
+              className={"ActivityItem-view"}
             />
           ))}
         </Slider>

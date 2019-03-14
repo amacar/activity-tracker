@@ -7,6 +7,14 @@ export const Home = {
   noTrackedActivities: "You haven’t tracked any activities yet."
 };
 
+export const Schedule = {
+  scheduleActivity: "Schedule your Activity",
+  howLong: "How long do you want to do this activity?",
+  whenToDo: "When do you want to do this activity?",
+  pickDate: "Pick a date & time or find a free slot",
+  schedule: "SCHEDULE"
+};
+
 export const Activities = {
   SURFING: {
     text: "Surfing",

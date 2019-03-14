@@ -22,10 +22,15 @@
 .ActivitiesRow-slider {
   color: #8d8c8c;
   font-size: 12px;
-  margin-top: 12px;
+  margin-top: 7px;
   margin-left: -5px;
 }
 
 .ActivitiesRow-slider .slick-slide {
   margin-right: 15px;
+}
+
+.ActivitiesRow-slider .ActivityItem-view {
+  padding-left: 5px;
+  padding-top: 10px;
 }

@@ -3,8 +3,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-left: 5px;
-  padding-top: 5px;
 }
 
 .ActivityItem-icon {
@@ -17,6 +15,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.ActivityItem-icon.selected {
+  background-color: #d97d54;
 }
 
 .ActivityItem-icon img {

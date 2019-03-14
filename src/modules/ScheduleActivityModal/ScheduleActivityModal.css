@@ -1,0 +1,37 @@
+.ScheduleActivityModal {
+  background-color: #344856;
+  height: 100vh;
+  color: white;
+}
+
+.ScheduleActivityModal-exit {
+  padding: 20px 0px 35px 20px;
+}
+
+/* Leave padding for bigger click area */
+.ScheduleActivityModal-exit span {
+  padding: 10px;
+  font-size: 24px;
+}
+
+.ScheduleActivityModal-header {
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.ScheduleActivityModal-activities {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.ScheduleActivityModal-activities .ActivityItem-schedule {
+  padding-left: 16px;
+  padding-right: 16px;
+  font-family: "rift-soft", sans-serif;
+  font-size: 13px;
+  letter-spacing: 2px;
+  font-weight: normal;
+}
