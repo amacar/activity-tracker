@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 
 import HomeScreen from "../../modules/HomeScreen/HomeScreen";
 import ScheduleActivityModal from "../../modules/ScheduleActivityModal/ScheduleActivityModal";
-import TrackActivityModal from "../../modules/TrackActivityModal/TrackActivityModal";
 import { fetchActivities } from "../../actions/activitiesActions";
 
 class App extends Component {
@@ -18,7 +17,6 @@ class App extends Component {
         <Switch>
           <Route exact path="/" component={HomeScreen} />
           <Route path="/schedule-activity" component={ScheduleActivityModal} />
-          <Route path="/track-activity" component={TrackActivityModal} />
         </Switch>
       </BrowserRouter>
     );
