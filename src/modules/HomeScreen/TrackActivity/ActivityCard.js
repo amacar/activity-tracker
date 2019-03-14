@@ -6,7 +6,7 @@ const ActivityCard = props => {
   const { activity } = props;
 
   return (
-    <div className="ActivityCard">
+    <div className="ActivityCard center">
       <img src={activity.src} alt="" />
       <div className="ActivityCard-icon">
         <img src={activity.icon} alt="" />

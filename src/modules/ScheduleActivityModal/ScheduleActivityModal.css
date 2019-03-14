@@ -18,7 +18,6 @@
   font-size: 30px;
   font-weight: bold;
   margin-bottom: 40px;
-  text-align: center;
 }
 
 .ScheduleActivityModal-activities {
@@ -34,4 +33,13 @@
   font-size: 13px;
   letter-spacing: 2px;
   font-weight: normal;
+}
+
+.ScheduleActivityModal-button {
+  background-color: #c8d1d3;
+  border: #87bcbf solid 1px;
+}
+
+.ScheduleActivityModal-button.active {
+  background-color: transparent;
 }

@@ -30,8 +30,12 @@ class ScheduleActivityModal extends Component {
     });
 
   selectActivity = key => {
-    console.log(this.state);
     this.setState({ selectedActivity: key });
+  };
+
+  allFieldsSelected = () => {
+    const { selectedActivity } = this.state;
+    return selectedActivity;
   };
 
   render() {
@@ -41,7 +45,7 @@ class ScheduleActivityModal extends Component {
         <div className="ScheduleActivityModal-exit">
           <span onClick={this.redirectToHome}>&#10006;</span>
         </div>
-        <div className="ScheduleActivityModal-header">{scheduleActivity}</div>
+        <div className="ScheduleActivityModal-header center">{scheduleActivity}</div>
         <div className="ScheduleActivityModal-activities">
           {this.getActivities().map(activity => {
             const selected = selectedActivity === activity.key;
@@ -58,7 +62,7 @@ class ScheduleActivityModal extends Component {
           })}
         </div>
 
-        <Button text={"Schedule"} />
+        <Button text={"Schedule"} className={"ScheduleActivityModal-button" + (this.allFieldsSelected() ? " active" : "")} />
       </div>
     );
   }
