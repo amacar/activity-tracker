@@ -4,7 +4,10 @@ import "./ActivityItem.css";
 
 const ActivityItem = ({ icon, text, className, onClick, selected }) => {
   return icon ? (
-    <div className={`ActivityItem${className ? ` ${className}` : ""}`} onClick={onClick}>
+    <div
+      className={`ActivityItem${className ? ` ${className}` : ""}`}
+      onClick={onClick}
+    >
       <div className={`ActivityItem-icon${selected ? " selected" : ""}`}>
         <img src={icon} alt="" />
       </div>

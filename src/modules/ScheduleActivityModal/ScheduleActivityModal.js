@@ -45,7 +45,9 @@ class ScheduleActivityModal extends Component {
         <div className="ScheduleActivityModal-exit">
           <span onClick={this.redirectToHome}>&#10006;</span>
         </div>
-        <div className="ScheduleActivityModal-header center">{scheduleActivity}</div>
+        <div className="ScheduleActivityModal-header center">
+          {scheduleActivity}
+        </div>
         <div className="ScheduleActivityModal-activities">
           {this.getActivities().map(activity => {
             const selected = selectedActivity === activity.key;
@@ -62,7 +64,13 @@ class ScheduleActivityModal extends Component {
           })}
         </div>
 
-        <Button text={"Schedule"} className={"ScheduleActivityModal-button" + (this.allFieldsSelected() ? " active" : "")} />
+        <Button
+          text={"Schedule"}
+          className={
+            "ScheduleActivityModal-button" +
+            (this.allFieldsSelected() ? " active" : "")
+          }
+        />
       </div>
     );
   }
