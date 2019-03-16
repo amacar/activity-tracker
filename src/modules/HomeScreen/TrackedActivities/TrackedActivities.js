@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 
 import "./TrackedActivities.css";
 import Activities from "../../../components/Activities/Activities";
-import { Home } from "../../../strings/en.js";
+import { Home } from "../../../strings/en";
 
 const { trackedActivities, noTrackedActivities } = Home;
 

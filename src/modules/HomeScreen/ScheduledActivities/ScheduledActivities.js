@@ -6,7 +6,7 @@ import "./ScheduledActivities.css";
 import Button from "../../../components/Button/Button";
 import Activities from "../../../components/Activities/Activities";
 import iconPlus from "../../../assets/icn_plus.svg";
-import { Home } from "../../../strings/en.js";
+import { Home } from "../../../strings/en";
 
 const { scheduledActivities, scheduleActivity, noScheduledActivities } = Home;
 

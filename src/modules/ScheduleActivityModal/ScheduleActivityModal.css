@@ -35,6 +35,11 @@
   font-weight: normal;
 }
 
+.ScheduleActivityModal-buttonWrapper {
+  margin-top: 98px;
+  padding-bottom: 15px;
+}
+
 .ScheduleActivityModal-button {
   background-color: #c8d1d3;
   border: #87bcbf solid 1px;

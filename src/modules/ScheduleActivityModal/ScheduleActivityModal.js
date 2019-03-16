@@ -9,8 +9,9 @@ import { Schedule } from "../../strings/en";
 import { Activities } from "../../util/constants";
 import DropdownWrapper from "../../components/Dropdown/DropdownWrapper";
 import Dropdown from "../../components/Dropdown/Dropdown";
+import DateTimeDropdown from "../../components/Dropdown/DateTimeDropdown";
 
-const { scheduleActivity, howLong } = Schedule;
+const { scheduleActivity, howLong, whenToDo, pickDate } = Schedule;
 
 class ScheduleActivityModal extends Component {
   constructor(props) {
@@ -37,8 +38,8 @@ class ScheduleActivityModal extends Component {
   };
 
   allFieldsSelected = () => {
-    const { selectedActivity, selected } = this.state;
-    return selectedActivity && selected;
+    const { selectedActivity, selected, start } = this.state;
+    return selectedActivity && selected && start;
   };
 
   generateDurations = () => {
@@ -60,8 +61,14 @@ class ScheduleActivityModal extends Component {
     this.setState({ selected: parseInt(event.target.value) });
   };
 
+  handleDateTimeDropdownChange = event => {
+    this.setState({ start: event.target.value });
+  };
+
+  generateFreeDateTimes = () => [];
+
   render() {
-    const { selectedActivity, selected } = this.state;
+    const { selectedActivity, selected, start } = this.state;
     return (
       <div className="ScheduleActivityModal">
         <div className="ScheduleActivityModal-exit">
@@ -92,13 +99,23 @@ class ScheduleActivityModal extends Component {
             onChange={this.handleDropdownChange}
           />
         </DropdownWrapper>
-        <Button
-          text={"Schedule"}
-          className={
-            "ScheduleActivityModal-button" +
-            (this.allFieldsSelected() ? " active" : "")
-          }
-        />
+        <DropdownWrapper text={whenToDo}>
+          <DateTimeDropdown
+            start={start}
+            options={this.generateFreeDateTimes()}
+            onDateTimeChange={this.handleDateTimeDropdownChange}
+            defaultText={pickDate}
+          />
+        </DropdownWrapper>
+        <div className="ScheduleActivityModal-buttonWrapper">
+          <Button
+            text={"Schedule"}
+            className={
+              "ScheduleActivityModal-button" +
+              (this.allFieldsSelected() ? " active" : "")
+            }
+          />
+        </div>
       </div>
     );
   }
