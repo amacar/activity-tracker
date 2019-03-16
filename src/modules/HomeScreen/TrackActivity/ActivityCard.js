@@ -7,9 +7,9 @@ const ActivityCard = props => {
 
   return (
     <div className="ActivityCard center">
-      <img src={activity.src} alt="" />
+      <img src={activity.src} alt={activity.text} />
       <div className="ActivityCard-icon">
-        <img src={activity.icon} alt="" />
+        <img src={activity.icon} alt={activity.text} />
       </div>
       <div className="ActivityCard-text">
         <span className="ActivityCard-header">{activity.text}</span>

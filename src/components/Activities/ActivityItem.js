@@ -9,7 +9,7 @@ const ActivityItem = ({ icon, text, className, onClick, selected }) => {
       onClick={onClick}
     >
       <div className={`ActivityItem-icon${selected ? " selected" : ""}`}>
-        <img src={icon} alt="" />
+        <img src={icon} alt={text} />
       </div>
       <span>{text}</span>
     </div>

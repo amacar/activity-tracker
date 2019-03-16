@@ -8,7 +8,7 @@ const Button = ({ icon, text, onClick, className }) => {
       className={`Button center${className ? ` ${className}` : ""}`}
       onClick={onClick}
     >
-      {icon && <img className="Button-icon" src={icon} alt="" />}
+      {icon && <img className="Button-icon" src={icon} alt={text} />}
       {text}
     </div>
   );

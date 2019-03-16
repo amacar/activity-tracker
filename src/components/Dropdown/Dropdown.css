@@ -1,0 +1,43 @@
+.Dropdown {
+  position: relative;
+}
+
+.Dropdown select {
+  width: 336px;
+  height: 56px;
+  border-radius: 6px;
+  outline: none;
+}
+
+.Dropdown-input {
+  position: absolute;
+  top: 0px;
+  pointer-events: none;
+  background-color: white;
+  width: 280px;
+  height: 56px;
+  border-radius: 6px 0px 0px 6px;
+}
+
+.Dropdown-input-text {
+  padding-top: 18px;
+  padding-left: 20px;
+  font-size: 15px;
+  color: #6e8ca0;
+}
+
+.Dropdown-button {
+  position: absolute;
+  top: 0px;
+  left: 280px;
+  pointer-events: none;
+  background-color: #d97d54;
+  width: 56px;
+  height: 56px;
+  border-radius: 0px 6px 6px 0px;
+}
+
+.Dropdown-button img {
+  padding-top: 18px;
+  padding-left: 20px;
+}

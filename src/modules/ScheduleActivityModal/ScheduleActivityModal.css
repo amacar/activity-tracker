@@ -1,6 +1,6 @@
 .ScheduleActivityModal {
   background-color: #344856;
-  height: 100vh;
+  min-height: 100vh;
   color: white;
 }
 
