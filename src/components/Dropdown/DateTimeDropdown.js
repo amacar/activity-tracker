@@ -21,7 +21,7 @@ const DateTimeDropdown = ({
       />
       <div className="DateTimeDropdown-input">
         <div className="DateTimeDropdown-input-text">
-          {start ? moment(start).format("dddd, MMMM Do h:mm A") : defaultText}
+          {start ? moment(start).format("dddd, MMMM Do h:mma") : defaultText}
         </div>
       </div>
       <div className="DateTimeDropdown-button">

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import moment from "moment";
+import { connect } from "react-redux";
 
 import Button from "../../components/Button/Button";
 import ActivityItem from "../../components/Activities/ActivityItem";
@@ -10,13 +11,14 @@ import { Activities } from "../../util/constants";
 import DropdownWrapper from "../../components/Dropdown/DropdownWrapper";
 import Dropdown from "../../components/Dropdown/Dropdown";
 import DateTimeDropdown from "../../components/Dropdown/DateTimeDropdown";
+import { saveActivity } from "../../actions/activitiesActions";
 
 const { scheduleActivity, howLong, whenToDo, pickDate } = Schedule;
 
 class ScheduleActivityModal extends Component {
   constructor(props) {
     super(props);
-    this.state = { selected: 15 };
+    this.state = { duration: 15 };
   }
 
   redirectToHome = () => {
@@ -38,8 +40,8 @@ class ScheduleActivityModal extends Component {
   };
 
   allFieldsSelected = () => {
-    const { selectedActivity, selected, start } = this.state;
-    return selectedActivity && selected && start;
+    const { selectedActivity, duration, start } = this.state;
+    return selectedActivity && duration && start;
   };
 
   generateDurations = () => {
@@ -58,7 +60,7 @@ class ScheduleActivityModal extends Component {
   };
 
   handleDropdownChange = event => {
-    this.setState({ selected: parseInt(event.target.value) });
+    this.setState({ duration: parseInt(event.target.value) });
   };
 
   handleDateTimeDropdownChange = event => {
@@ -67,8 +69,23 @@ class ScheduleActivityModal extends Component {
 
   generateFreeDateTimes = () => [];
 
+  handleSubmit = async () => {
+    if (this.allFieldsSelected()) {
+      const { selectedActivity, duration, start } = this.state;
+      const startMoment = moment(start);
+      const endMoment = startMoment.clone().add(duration, "m");
+      const activity = {
+        type: selectedActivity,
+        start: startMoment.valueOf(),
+        end: endMoment.valueOf()
+      };
+      await this.props.saveActivity(activity);
+      this.redirectToHome();
+    }
+  };
+
   render() {
-    const { selectedActivity, selected, start } = this.state;
+    const { selectedActivity, duration, start } = this.state;
     return (
       <div className="ScheduleActivityModal">
         <div className="ScheduleActivityModal-exit">
@@ -94,7 +111,7 @@ class ScheduleActivityModal extends Component {
         </div>
         <DropdownWrapper text={howLong}>
           <Dropdown
-            selected={selected}
+            selected={duration}
             options={this.generateDurations()}
             onChange={this.handleDropdownChange}
           />
@@ -114,6 +131,7 @@ class ScheduleActivityModal extends Component {
               "ScheduleActivityModal-button" +
               (this.allFieldsSelected() ? " active" : "")
             }
+            onClick={this.handleSubmit}
           />
         </div>
       </div>
@@ -121,4 +139,13 @@ class ScheduleActivityModal extends Component {
   }
 }
 
-export default withRouter(ScheduleActivityModal);
+const mapDispatchToProps = {
+  saveActivity: activity => saveActivity(activity)
+};
+
+export default withRouter(
+  connect(
+    undefined,
+    mapDispatchToProps
+  )(ScheduleActivityModal)
+);

@@ -36,7 +36,7 @@ const ActivitiesRow = ({ group: { month, day, dayWord, activities } }) => {
             <ActivityItem
               key={i}
               icon={Activities[activity.type] && Activities[activity.type].icon}
-              text={moment(activity.start).format("h:mm A")}
+              text={moment(activity.start).format("h:mmA")}
               className={"ActivityItem-view"}
             />
           ))}

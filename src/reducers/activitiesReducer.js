@@ -1,6 +1,7 @@
 import {
   FETCH_ACTIVITIES,
-  ACTIVITIES_FETCHED
+  ACTIVITIES_FETCHED,
+  ACTIVITY_SAVED
 } from "../actions/activitiesActions";
 
 export const activitiesReducer = (state = {}, action) => {
@@ -16,6 +17,15 @@ export const activitiesReducer = (state = {}, action) => {
         isFetching: false,
         scheduled: action.scheduled,
         tracked: action.tracked
+      };
+    case ACTIVITY_SAVED:
+      return {
+        ...state,
+        scheduled: [
+          ...state.scheduled.slice(0, action.index),
+          action.activity,
+          ...state.scheduled.slice(action.index)
+        ]
       };
     default:
       return state;
