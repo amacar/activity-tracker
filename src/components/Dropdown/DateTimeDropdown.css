@@ -3,9 +3,16 @@
 }
 
 .DateTimeDropdown input {
-  width: 280px;
+  width: 276px;
   height: 52px;
   border-radius: 6px 0px 0px 6px;
+  outline: none;
+}
+
+.DateTimeDropdown select {
+  width: 54px;
+  height: 54px;
+  border-radius: 0px 6px 6px 0px;
   outline: none;
 }
 
