@@ -13,3 +13,10 @@ Install global package for serving simple backend : `yarn global add json-server
 1. Start backend: `yarn mock-backend`
 
 2. Start frontend: `yarn start`
+
+## App Screenshots:
+
+![HomeScreen](app screenshots/HomeScreen.png)
+![DateTimePicker](app screenshots/DateTimePicker.png)
+![TimeSlotsProposals](app screenshots/TimeSlotsProposals.png)
+![ActivityHistory](app screenshots/ActivityHistory.png)
