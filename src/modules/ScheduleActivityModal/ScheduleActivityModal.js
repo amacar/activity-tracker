@@ -67,7 +67,73 @@ class ScheduleActivityModal extends Component {
     this.setState({ start: event.target.value });
   };
 
-  generateFreeDateTimes = () => [];
+  generateTimeSlots = () => {
+    const { duration } = this.state;
+    const { scheduled } = this.props;
+    const proposedTimeSlots = [];
+    let current = moment()
+      .add(1, "d")
+      .startOf("day")
+      .hour(8);
+    const endPeriod = moment()
+      .add(7, "d")
+      .startOf("day")
+      .hour(22);
+
+    // filter scheduled in next 7 days
+    const filteredScheduled = scheduled.filter(
+      act =>
+        moment(act.end).isAfter(current) &&
+        moment(act.start).isBefore(endPeriod)
+    );
+    let filteredSearchIndex = 0;
+
+    while (
+      moment(current)
+        .add(duration, "m")
+        .isSameOrBefore(endPeriod)
+    ) {
+      const day = current.day();
+      const dayEnd = moment(current)
+        .startOf("day")
+        .hour(22);
+      const currentEnd = moment(current).add(duration, "m");
+
+      // if weekend (not extra specified but based on your example) or time after 22.00 then go to next day
+      if (day === 0 || day === 6 || currentEnd.isAfter(dayEnd)) {
+        current
+          .add(1, "d")
+          .startOf("day")
+          .hour(8);
+      } else {
+        let checkNextScheduled = false;
+        // check against other scheduled activities
+        if (filteredSearchIndex < filteredScheduled.length) {
+          const scheduledActivity = filteredScheduled[filteredSearchIndex];
+
+          // if scheduled is before start of proposed, check with next scheduled
+          // if scheduled overlap with proposed move to end of scheduled
+          if (moment(scheduledActivity.end).isSameOrBefore(current)) {
+            checkNextScheduled = true;
+          } else if (
+            !moment(scheduledActivity.start).isSameOrAfter(currentEnd)
+          ) {
+            current = moment(scheduledActivity.end);
+            checkNextScheduled = true;
+          }
+        }
+
+        if (checkNextScheduled) {
+          filteredSearchIndex++;
+        } else {
+          proposedTimeSlots.push(moment(current).format());
+          current = currentEnd;
+        }
+      }
+    }
+
+    return proposedTimeSlots;
+  };
 
   handleSubmit = async () => {
     if (this.allFieldsSelected()) {
@@ -119,7 +185,7 @@ class ScheduleActivityModal extends Component {
         <DropdownWrapper text={whenToDo}>
           <DateTimeDropdown
             start={start}
-            options={this.generateFreeDateTimes()}
+            options={this.generateTimeSlots()}
             onDateTimeChange={this.handleDateTimeDropdownChange}
             defaultText={pickDate}
           />
@@ -139,13 +205,21 @@ class ScheduleActivityModal extends Component {
   }
 }
 
+const mapStateToProps = state => {
+  const {
+    activitiesStore: { scheduled }
+  } = state;
+
+  return { scheduled };
+};
+
 const mapDispatchToProps = {
   saveActivity: activity => saveActivity(activity)
 };
 
 export default withRouter(
   connect(
-    undefined,
+    mapStateToProps,
     mapDispatchToProps
   )(ScheduleActivityModal)
 );
