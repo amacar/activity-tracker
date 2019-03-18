@@ -16,7 +16,7 @@ Install global package for serving simple backend : `yarn global add json-server
 
 ## App Screenshots:
 
-![HomeScreen](app screenshots/HomeScreen.png)
-![DateTimePicker](app screenshots/DateTimePicker.png)
-![TimeSlotsProposals](app screenshots/TimeSlotsProposals.png)
-![ActivityHistory](app screenshots/ActivityHistory.png)
+![HomeScreen](app_screenshots/HomeScreen.png)
+![DateTimePicker](app_screenshots/DateTimePicker.png)
+![TimeSlotsProposals](app_screenshots/TimeSlotsProposals.png)
+![ActivityHistory](app_screenshots/ActivityHistory.png)
